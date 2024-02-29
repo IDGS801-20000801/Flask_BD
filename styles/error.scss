@@ -1,0 +1,31 @@
+@import "bourbon";
+
+$green: #1ff042;
+
+@include keyframes(cursor-blink) {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.four-oh-four {
+    position: relative;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    min-width: 100vh;
+    z-index: 2;
+    background-color: black;
+    transition: opacity 300ms ease-out;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .dJAX_internal {
+        opacity: 0,0;
+    }
+}

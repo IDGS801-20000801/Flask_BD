@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% from "_macros.html" import camposNuevos %}
+
+<div class="container">
+    <div class="row">
+        <form name="sent" action="/index" method="POST" id="contactForm">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    {{
+                        camposNuevos(
+                            form.nombre, 
+                            class='form-control'
+                        )
+                    }}
+                </div>
+        
+                <div class="col-md-3">
+                    {{
+                        camposNuevos(
+                            form.primerApellido, 
+                            class='form-control'
+                        )
+                    }}
+                </div>
+        
+                <div class="col-md-3">
+                    {{
+                        camposNuevos(
+                            form.segundoApellido, 
+                            class='form-control'
+                        )
+                    }}
+                </div>
+        
+                <div class="col-md-3">
+                    {{
+                        camposNuevos(
+                            form.correo,
+                            class='form-control'
+                        )
+                    }}
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" name="signup" id="send-sign-up" value="registrar">
+                    Registrar
+                </button>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        </form>
+    </div>
+</div>
+{% endblock %}
