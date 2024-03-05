@@ -1,10 +1,79 @@
-<div class="container">
-    <form action="" class="four-oh-four-form">
-        <input type="text" name="" id="" class="404-input">
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Página no encontrada</title>
+    <style>
+        body {
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
 
-    <div class="terminal">
-        <p class="prompt">The page you requested cannot be found right meow. Try typing 'Kittens'.</p>
-        <p class="prompt output new-output"></p>
+        h1 {
+            font-size: 4em;
+            color: #e74c3c;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #ecf0f1;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            border-bottom: 1px dashed #3498db;
+        }
+
+        a:hover {
+            color: #2980b9;
+            border-bottom: 1px dashed #2980b9;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            animation: colorFlash 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes colorFlash {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #e74c3c; }
+            100% { text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c; }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>404</h1>
+        <p>¡Ups! Parece que te has perdido en la psicodelia.</p>
+        <p>Vuelve a <a href="/ABC_Completo">casa</a>.</p>
     </div>
-</div>
+
+    <img id="bg-image" src="../resources/img/5532740.jpg">
+</body>
+</html>

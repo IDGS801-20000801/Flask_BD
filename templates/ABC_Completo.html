@@ -24,8 +24,8 @@
                     <td>{{alumno.primerApellido}}</td>
                     <td>{{alumno.segundoApellido}}</td>
                     <td>{{alumno.correo}}</td>
-                    <td><a href="eliminar.htlm?id={{alumno.id}}" class="btn btn-danger">Eliminar</a></td>
-                    <td><a href="modificar.htlm?id={{alumno.id}}" class="btn btn-warning">Modificar</a></td>
+                    <td><a href="eliminar?id={{ alumno.id }}" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="modificar?id={{ alumno.id }}" class="btn btn-warning">Modificar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,6 +1,6 @@
 from config import DevelopmentConfig
 
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from flask import flash
 from flask import g
 from flask_wtf.csrf import CSRFProtect
@@ -19,7 +19,7 @@ def page_not_found(e):
 
 @app.route("/")
 def main():
-    return render_template("")
+    return render_template("layout.html")
 
 @app.route("/index", methods=["GET", "POST"])
 def index():
@@ -53,3 +53,28 @@ if __name__ == "__main__":
         db.create_all()
         
     app.run()
+    
+@app.route('/eliminar', methods=['GET', 'POST'])
+def eliminar():
+    create_form = forms.UserForm(request.form)
+    
+    if request.method == 'GET':
+        id = request.args.get('id')
+        alumno = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+        
+        create_form.id.data = request.args.get('id')
+        create_form.nombre.data = alumno.nombre
+        create_form.primerApellido.data = alumno.primerApellido
+        create_form.correo.data = alumno.correo
+        
+    if request.method == 'POST':
+        id = create_form.id.data
+        alum = Alumnos.query.get(id)
+        
+        # DELETE FROM alumnos where id = id
+        db.session.delete(alum)
+        db.session.commit()
+        
+        return redirect(url_for('ABCompleto'))
+
+    return render_template('eliminar.html', form = create_form)
